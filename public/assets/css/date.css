@@ -1,0 +1,219 @@
+.calendar-header {
+    font-size: 1.2em;
+    height: auto;
+    padding: 0;
+}
+
+/*******************************Calendar Top Navigation*********************************/
+div#calendar {
+    margin: 0px auto;
+    padding: 0px;
+    width: 570px;
+    /* font-family: Helvetica, "Times New Roman", Times, serif; */
+}
+
+div#calendar div.box {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 20px;
+}
+
+div#calendar div.header1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 15px;
+    position: absolute;
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+}
+
+div#calendar div.header1 input.prev, div#calendar div.header1 input.next {
+    position: absolute;
+    top: 0px;
+    /*height: 17px;*/
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+}
+
+div#calendar div.header1 span.title {
+    color: #000;
+    font-size: 18px;
+}
+
+div#calendar div.header1 input.prev {
+    left: 120px;
+    background-color: #DDEEDF;
+    /*margin-top: 10px;*/
+}
+
+div#calendar div.header1 input.next {
+    right: 120px;
+    background-color: #DDEEDF;
+    /*margin-top: 10px;*/
+}
+
+/*******************************Calendar Content Cells*********************************/
+div#calendar div.box-content {
+    /*border:1px solid #787878 ;*/
+    margin-top: 10px;
+    border-top: none;
+}
+
+div#calendar ul.label {
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+/* calendar week title */
+div#calendar ul.label li {
+    margin: 0px;
+    padding: 0px;
+    /* margin-right: 5px; */
+    border-style: solid;
+    border-width: 1px;
+    border-color: #B8B8B8;
+    float: left;
+    list-style-type: none;
+    width: 80px;
+    /* height: 40px;
+    line-height: 40px; */
+    vertical-align: middle;
+    text-align: center;
+    color: #000;
+    font-size: 15px;
+    background-color: #eaecf4;
+    /* box-shadow: 3px 3px 3px #888888; */
+}
+
+div#calendar ul.dates {
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+/*********/
+/*案件狀態*/
+/*********/
+/*已送出*/
+div#calendar ul.dates li.send, .status-send {
+    background-color: #9DC0DF;
+}
+
+/*已儲存*/
+div#calendar ul.dates li.save, .status-save {
+    background-color: #B0E2F1;
+}
+
+/*退回*/
+div#calendar ul.dates li.reject, div#calendar ul.dates li.reject-save, .status-reject {
+    background-color: #EFACAA;
+}
+
+/*核章*/
+div#calendar ul.dates li.accept, .status-accept {
+    background-color: #BDEEBD;
+}
+
+/*沒資料*/
+div#calendar ul.dates li.undefined, .status-undefined {
+    background-color: #FFFFFF;
+}
+
+/*退回修改中*/
+.status-resend {
+    /* border-bottom: 4px solid #FAD8A9; */
+    background-color: #FAD8A9;
+}
+
+div#calendar ul.dates li.resend {
+    border-bottom: 7px solid #FAD8A9;
+    /* background-color: #FAD8A9; */
+}
+
+/*他月日期*/
+.other-month {
+    color: #cacaca;
+}
+
+/*空元素*/
+div#calendar ul.dates li.mask {
+    /* opacity: 0.1; */
+    background-color: #FFFFFF;
+}
+
+/* 滑鼠經過空元素 */
+div#calendar ul.dates li.mask:hover {
+    /* opacity: 0.1; */
+    background-color: #FFFFFF;
+    background-color: rgba(100, 204, 255, 0.1);
+}
+
+/*滑鼠經過*/
+div#calendar ul.dates li:hover {
+    background-color: rgba(100, 204, 255);
+}
+
+/*退回重寫中*/
+/* .writing { */
+/* border-bottom: 4px solid #FF7777; */
+/* } */
+/** overall width = width+padding-right**/
+/* calendar items */
+div#calendar ul.dates li {
+    /* padding-top: px; */
+    text-align: right;
+    padding-right: 3px;
+    /* margin-right: 5px; */
+    /* margin-top: 5px; */
+    /*line-height:80px;*/
+    border-style: solid;
+    border-width: 1px;
+    border-color: #B8B8B8;
+    vertical-align: center;
+    float: left;
+    list-style-type: none;
+    width: 80px;
+    height: 70px;
+    max-height: 80px;
+    font-size: 16px;
+    background-color: #CCEEFF;
+    /* color: #000; */
+    /* box-shadow: 3px 3px 3px #888888; */
+    /*text-align:center; */
+}
+
+.dot {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+:focus {
+    outline: none;
+}
+
+div.clear {
+    clear: both;
+}
+
+.reportStatusList {
+    position: relative;
+    top: 100px;
+    right: 50px;
+}

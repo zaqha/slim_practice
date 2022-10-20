@@ -1,0 +1,48 @@
+@media print{
+    @page {
+        size: A4 portrait;
+        margin: auto;
+    }
+    body {
+        display: flex;
+        /*justify-content: center;
+        align-items: center;*/
+        
+    }
+
+    #content-wrapper {
+        display: block !important;
+        overflow: visible !important;
+    }
+
+    .letterRight {
+        text-align: left !important;
+        margin-left: 420px !important;
+    }
+    
+    /*#letterBody {
+        width: 100% !important;
+        height: 150% !important;
+        table-layout: fixed !important;
+        vertical-align: middle !important;
+    }*/
+    header *, #page-wrapper nav *, footer, #sidebar-wrapper, .sidebar-brand, title, #tfoot, hr, .card-header {display: none !important;}
+    * {border: 0px !important;margin: 0px !important; padding: 0px !important; }
+
+    .shadow {
+        display: none !important;
+    }
+
+    #content-wrapper {
+        border-left: none !important;
+    }
+
+    .lastLetter {
+        margin-top: 50px !important;
+        page-break-after: always !important;
+    }
+
+    #content-wrapper {
+        border-left: none !important;
+    }
+}

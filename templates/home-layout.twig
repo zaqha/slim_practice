@@ -1,0 +1,191 @@
+{% include "basic-header.twig" %}
+
+<!-- Modal -->
+<div class="modal fade" id="modalProjectCostAnalysis" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+
+<html>
+
+    <body id="page-top">
+
+        <!-- Page Wrapper -->
+        <div id="page-wrapper">
+            <div id="wrapper">
+            <!-- Sidebar -->
+    
+
+            <!-- End of Sidebar -->
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column border-left" style="height:100vh;">
+
+                <!-- Main Content -->
+                <div id="content">
+                        <!-- Begin Page Content -->
+                        <div class="container-fluid">
+                            {% block content %}{% endblock %}
+                        </div>
+
+                    </div>
+                    <!-- End of Main Content -->
+
+                    <!-- Footer -->
+                    <footer class="sticky-footer bg-white">
+                    </footer>
+                    <!-- End of Footer -->
+
+                </div>
+                <!-- End of Content Wrapper -->
+            </div>
+
+            </div>
+            <!-- End of Page Wrapper -->
+
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fas fa-angle-up"></i>
+            </a>
+            {% include "basic-javascript.twig" %}
+            {% if get_uri().path == "/informc-hr-new/" %}
+                <script>
+                    var pushMessage = ""
+                {% if session.rejectedReportNumber + session.unsignedReportNumber > 0 %}
+
+                    pushMessage = pushMessage + '您有{{session.rejectedReportNumber}}則被退回的日報，請檢查\n'
+
+                {% endif %}
+                {% if session.assignmentFromList|length > 0 %}
+
+                    pushMessage = pushMessage + '您有{{session.assignmentFromList|length}}項待辦事項，請檢查\n'
+
+                {% endif %}
+                {% if session.assignmentToList|length > 0 %}
+
+                    pushMessage = pushMessage +'您有{{session.assignmentToList|length}}項交辦事項，請檢查\n'
+
+                {% endif %}
+                {% if session.unsignedReportNumber > 0 %}
+
+                    pushMessage = pushMessage +'您有{{session.unsignedReportNumber}}張待簽核表單，請檢查\n'
+
+                {% endif %}
+                if(pushMessage != ""){
+                    Push.create("Smart HR系統提醒", {
+                        body: pushMessage,
+                        icon: './public/assets/img/hr-logo2.png',
+                        timeout: 10000,
+                        onClick: function () {
+                            window.focus();
+                            this.close();
+                        }
+                    });
+                }
+                </script>
+            {% endif %}
+            {% if session.overtime == true %}
+                <script>
+
+                    function displayOvertimeLength(){
+                        let currentTime = new Date()
+                        let overtimeIn = new Date('{{session.overtimeIn}}')
+                        // console.log(overtimeIn)
+                        let diffMs = (currentTime - overtimeIn);
+                        let diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
+                        let diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
+                        let txtLength = ""
+
+                        var clickedSidebar = ""
+                        // console.log(currentTime)
+                        // console.log(overtimeIn)
+                        // console.log(diffHrs)
+                        // console.log(diffMins)
+                        if(diffHrs != 0){
+                            txtLength = txtLength + diffHrs.toString() + "小時"
+                        }
+
+                        // console.log(diffMins)
+                        if(diffMins != 0){
+                            txtLength = txtLength + diffMins.toString() + "分"
+                        }else if(diffMins == 0){
+                            txtLength = "0分"
+                        }
+                        $('#txtOvertimeLength').text(txtLength)
+                    }
+
+                    // execute function when loading page
+                    displayOvertimeLength()
+
+                    // refresh overtime number in header
+                    setInterval(displayOvertimeLength, 10000);
+
+
+                </script>
+            {% endif %}
+            <script type="module">
+                import workerTimers from 'https://dev.jspm.io/worker-timers';
+
+                function getNotificationNumAndPush(){
+
+                    $.ajax({
+                        method: 'GET',
+                        url: location.origin + "/" + directoryName + "/get-notification-num"
+                    }).done(function(data, msg, obj) {
+
+                        // var numObj = JSON.parse(data)
+                        // console.log(data)
+                        var pushMessage = ""
+
+                        if(notEqualAndLarger(data.rejectedReportNumber, localStorage.getItem('rejectedReportNumber'))){
+                            pushMessage = pushMessage + '您有' + data.rejectedReportNumber + '則被退回的日報，請檢查\n'
+                        }
+
+                        if(notEqualAndLarger(data.assignmentFromListNumber, localStorage.getItem('assignmentFromListNumber'))){
+                            pushMessage = pushMessage + '您有' + data.assignmentFromListNumber + '項待辦事項，請檢查\n'
+                        }
+
+                        if(notEqualAndLarger(data.assignmentToListNumber, localStorage.getItem('assignmentToListNumber'))){
+                            pushMessage = pushMessage +'您有' + data.assignmentToListNumber + '項交辦事項，請檢查\n'
+                        }
+
+                        if(notEqualAndLarger(data.unsignedReportNumber, localStorage.getItem('unsignedReportNumber'))){
+                            pushMessage = pushMessage + '您有' +  data.unsignedReportNumber + '張待簽核表單，請檢查\n'
+                        }
+
+                        if(pushMessage != ""){
+                            Push.create("Smart HR系統提醒", {
+                                body: pushMessage,
+                                icon: location.origin + "/" + directoryName + '/public/assets/img/hr-logo2.png',
+                                timeout: 10000,
+                                onClick: function () {
+                                    window.focus();
+                                    this.close();
+                                }
+                            });
+                        }
+
+                        localStorage.setItem('rejectedReportNumber', data.rejectedReportNumber)
+                        localStorage.setItem('unsignedReportNumber', data.unsignedReportNumber)
+                        localStorage.setItem('assignmentFromListNumber', data.assignmentFromListNumber)
+                        localStorage.setItem('assignmentToListNumber', data.assignmentToListNumber)
+                    })
+                }
+
+                workerTimers.setInterval(getNotificationNumAndPush, 30000);
+            </script>
+            <script>
+
+                $('#modalProjectCostAnalysis').on('show.bs.modal', function(e){
+                    $.get(location.origin + '/' + directoryName + '/get-project-cost-analysis-modal', function(data) {
+                        $('#modalProjectCostAnalysis .modal-content').html(data);
+                    })
+                })
+
+            </script>
+            {% block javascript %}
+            {% endblock %}
+        </html>

@@ -1,0 +1,14 @@
+.ui-datepicker-calendar {
+    display: none;  //隱藏日期區塊
+}
+input.hasDatepicker {
+    width: 100px;
+    height: 50px;
+    padding-right: 30px;
+}
+button.ui-datepicker-trigger {
+    height: 32px;
+    border: none;
+    background: transparent;
+    margin-left: -30px;
+}

@@ -1,0 +1,87 @@
+    <!-- modify modal -->
+    <div class="modal fade" id="modalModifySub" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="formModifySub" method="post" action="./disaster_type/aboveUpdate">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">修改災情類別管理-細項名稱</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="subName_edit" class="col-form-label">名稱：</label>
+                            <input name="subName_edit" type="text" class="form-control">
+                            <input name="subId_edit" type="hidden" class="form-control">
+                            <input name="parentId_edit" type="hidden" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="authority_edit" class="col-form-label">權責單位：</label>
+                            <input name="authority_edit" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        <button type="submit" id="sub_edit" class="btn btn-primary">確定</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<div class="d-flex">
+    {# <button type="button" class="btn btn-outline-dark mr-3" onclick="$('#roleFunctionTreeview').hummingbird('checkAll')">全選</button>
+    <button type="button" class="btn btn-outline-dark" onclick="$('#roleFunctionTreeview').hummingbird('uncheckAll')">取消全選</button> #}
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">細項名稱</span>
+        </div>
+        <input id="subName" name="subName" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">責任單位名稱</span>
+        </div>
+        <input id="authority" name="authority" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input id="parent_id" type="hidden" value={{roleId}}>
+        <button type="button" id="btnAddSubStype" class="btn btn-dark ml-3">新增</button>
+    </div>
+</div>
+<div id="roleList" class="card card-body">
+    <b class="" id="inputGroup-sizing-sm">災情類別管理-細項名稱/權責單位</b>
+<br>
+<div id="roleFunctionList" class="card card-body">
+    <input type="hidden" id="roleID" value="{{roleId}}">{{arr.name}}
+    <div id="treeview_container" class="hummingbird-treeview" style="height: 500px; overflow-y: scroll;">
+        <ul id="roleFunctionTreeview" class="hummingbird-base">
+            {% for group in subFunctionList %}
+            <li data-id="">
+                <div class="roleContainer d-flex align-items-center d-flex justify-content-between">
+                <label>
+                    {{group.subName}}({{group.authority}})
+                </label>
+                        <div class="btn-group m-1" role="group" aria-label="Basic example">
+                            <button type="button" class="subEdit btnRenameRole btn btn-outline-secondary" data-id={{group.id}} data-name={{group.subName}} data-authority={{group.authority}} data-parent={{group.parent_id}} data-toggle="modal" data-target="#modalModifySub">
+                                <i class="fas fa-pen"></i>
+                            </button>
+                            <button type="button" class="btnRemoveSub btn btn-outline-secondary" data-id={{group.id}} data-parent={{group.parent_id}} data-toggle="modal">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                </div>
+                <ul>
+                    {% for item in functionList %}
+                        {% if item.function_group == group.subName %}
+                            <li>
+                                <label><input class="hummingbird-end-node" data-id="{{item.id}}"/>{{item.subName}}</label>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% block javascript %}
+{% endblock %}

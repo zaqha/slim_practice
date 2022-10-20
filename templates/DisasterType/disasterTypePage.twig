@@ -1,0 +1,77 @@
+{% extends "home-layout.twig" %}
+{% block content %}
+    <!-- modify modal -->
+    <div class="modal fade" id="modalModifyRole" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {# <form id="formModifyRole" method="post" action="./disaster_type/aboveUpdate"> #}
+                <form id="formModifyRole" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">修改災情類別管理-大項名稱</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="aboveName" class="col-form-label">名稱：</label>
+                            <input name="aboveName" type="text" class="form-control">
+                            <input name="aboveId" type="hidden" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        <button type="submit" id="above_edit" class="btn btn-primary">確定</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow">
+        <div class="card-header font-weight-bold">
+            災情類別管理
+        </div>
+        <div class="card-body">
+            <form id="formRoleManagement" method="post">
+
+                <div class="d-flex flex-row ppppasdf">
+                    <div id="divRoleTab" class="w-50 mr-3">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">大項名稱</span>
+                            </div>
+                            <input id="newRoleName" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                            <button type="button" id="btnAddAboveType" class="btn btn-secondary ml-3">新增</button>
+                        </div>
+                        <div id="roleList" class="card card-body">
+                        <b class="" id="inputGroup-sizing-sm">災情類別管理-大項名稱</b>
+                        <br>
+                            {% for abovetypeData in disasterabovetype %}
+                                <div class="roleContainer d-flex align-items-center d-flex justify-content-between">
+                                    <input id="radioRole{{abovetypeData.id}}" name="roleRadio[]" type="radio" value="{{abovetypeData.id}}" onclick="getFunctionTab({{abovetypeData.id}})">
+                                    <input type="hidden" name="roleName[]" value="{{abovetypeData.name}}">
+                                    <label for="radioRole{{abovetypeData.id}}">{{abovetypeData.aboveName}}</label>
+                                    <div class="btn-group m-1" role="group" aria-label="Basic example">
+                                        <button type="button" class="btnRenameRole btn btn-outline-secondary" data-toggle="modal" data-target="#modalModifyRole">
+                                            <i class="fas fa-pen"></i>
+                                        </button>
+                                        <button type="button" class="btnRemoveRole btn btn-outline-secondary" data-toggle="modal" data-target="#modalRemoveRole">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                        </div>
+                    </div>
+                    <div id="divFunctionTab" class="w-50 mx-3"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+    <script src="{{base_path()}}assets/js/disasterType.js"></script>
+{% endblock %}

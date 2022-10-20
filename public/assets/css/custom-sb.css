@@ -1,0 +1,303 @@
+/* larger profile img snapshot */
+.sidebar .nav-item .nav-link .img-profile, .topbar .nav-item .nav-link .img-profile {
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+/* clip profile img snapshot */
+.rounded-circle {
+    object-fit: cover;
+}
+
+/* larger sidebar font size */
+.sidebar .nav-item .nav-link span {
+    font-size: 0.95rem;
+}
+
+/* larger sidebar font size */
+.sidebar .nav-item .collapse .collapse-inner,
+.sidebar .nav-item .collapsing .collapse-inner {
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.sidebar .nav-item .home-item {
+    text-align: center;
+}
+
+.navbar-nav {
+    background-color: rgb(65 65 65 / 40%);
+}
+
+/* 右上角按鈕動畫 */
+.topbar li:hover {
+    background-color: #5a5c69;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
+}
+
+.footer {
+    background-color: rgb(255 255 255 / 90%);
+}
+
+.topbar .navbar-button {
+    width: 75px;
+    border: none;
+    height: 100%;
+    border-radius: 0;
+    color: #FFFFFF;
+}
+
+/* height of button in navbar */
+.topbar .nav-item .nav-link {
+    height: 3.5rem;
+}
+
+.sidebar .sidebar-brand {
+    height: 12rem;
+}
+
+/* 取消topbar元素間距 */
+.topbar .topbar-divider {
+    margin: 0;
+}
+
+/* 取消預設樣式之margin-top */
+.form-check-input {
+    margin-top: 0;
+}
+
+/* 讓disabled的按鈕文字顏色更淡 */
+.btn.disabled, .btn:disabled {
+    opacity: 0.4;
+}
+
+/* 將sidebar字體改為粗體 */
+.sidebar-light .nav-item .nav-link {
+    font-weight: bold;
+    color: #000;
+}
+
+/* 將字體顏色改為黑色 */
+.sidebar-light .nav-item .nav-link:active, .sidebar-light .nav-item .nav-link:focus, .sidebar-light .nav-item .nav-link:hover,
+.sidebar-light .nav-item .nav-link:hover i, .table .thead-light th, .table, .form-control, .custom-select,
+.sidebar-light .nav-item .nav-link[data-toggle="collapse"]::after,
+.sidebar-light .nav-item .nav-link:active i, .sidebar-light .nav-item .nav-link:focus i, .sidebar-light .nav-item .nav-link:hover i,
+.form-control:focus {
+    color: #000;
+}
+
+/* 將sidebar字體改為粗體 */
+.sidebar .nav-item .collapse .collapse-inner .collapse-item, .sidebar .nav-item .collapsing .collapse-inner .collapse-item {
+    font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-bottom: 0;
+}
+
+/* little number beside icon */
+.sidebar .nav-item .nav-link .badge-counter, .topbar .nav-item .nav-link .badge-counter {
+    position: static;
+    transform: none;
+}
+
+.dropdown .dropdown-menu .dropdown-header {
+    font-size: 1rem;
+    background-color: #333333;
+}
+
+/* topbar產品名稱 */
+.topbar-product-name {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* topbar邊線 */
+.navbar {
+    border-bottom: 1px #e3e6f0 solid;
+    background-image: url('../img/banner.jpg');
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+}
+
+.collapse-inner {
+    border: 2px #9DC0DF solid;
+}
+
+/* sidebar項目點擊後底線 */
+/* .sidebar-light .nav-item .nav-link:active, .sidebar-light .nav-item .nav-link:focus,
+.sidebar-light .nav-item .nav-link:hover {
+    background: linear-gradient(#9DC0DF, #9DC0DF) bottom no-repeat;
+    background-size: 90% 2px;
+} */
+/* 公司logo */
+.company-logo {
+    padding: 2px;
+    width: auto;
+    height: auto;
+    /* background: white; */
+    /* object-fit: contain; */
+}
+
+/* sidebar固定 */
+.sidebar {
+    background-color: #FFF;
+    /* position: fixed; */
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    /* Stay at the top */
+    left: 0;
+    width: 160px;
+    min-height: 0;
+}
+
+#sidebar-wrapper {
+    overflow-y: auto;
+    height: calc(100vh - 4.375rem);
+    width: 21rem;
+}
+
+/* set background to white */
+#wrapper #content-wrapper {
+    background-color: #FFF;
+}
+
+/* #content-wrapper {
+    height: 100vh;
+    overflow-y: auto;
+} */
+
+/* footer height */
+footer.sticky-footer {
+    padding: 1.5rem
+}
+
+.custom-file-input~.custom-file-label::after {
+    content: "瀏覽...";
+}
+
+/* 樹狀圖字型大小 */
+.hummingbird-treeview, .hummingbird-treeview * {
+    font-size: 16px;
+}
+
+/* content部分上方加上padding */
+#content {
+    padding-top: 1.5rem;
+}
+
+body {
+    color: #000;
+    overflow-y: hidden;
+    z-index: 0;
+}
+
+.login-img {
+    opacity: 0.8;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url('../img/login-background.jpg');
+    background-repeat: round;
+}
+
+/* sidebar寬度 */
+@media (min-width: 768px) {
+    .sidebar {
+        width: 16rem !important;
+    }
+
+    .sidebar .nav-item .nav-link {
+        width: 16rem;
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* 分頁頁碼背景顏色 */
+.page-item.active .page-link {
+    background-color: #333333;
+}
+
+/* 分頁頁碼字體顏色 */
+.page-link {
+    color: #000;
+}
+
+.page-link:hover {
+    color: #000;
+}
+
+a {
+    color: #0087ff;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #0087ff;
+}
+
+/* 改變primary顏色 */
+.btn-primary {
+    background-color: #0087ff;
+    border-color: #0087ff;
+}
+
+/* sidebar collapse背景顏色 */
+.sidebar .collapse-inner {
+    background-color: #EEEEEE;
+}
+
+/* gridstack邊框 */
+.grid-stack-item-content {
+    /* border: 2px solid #d1d3e2;
+  border-radius: 0.35rem; */
+}
+
+.bg-header-project {
+    background: linear-gradient(45deg, #0C2D48, #FFF);
+}
+
+.bg-header-announcement {
+    background-color: #145DA0;
+}
+
+.bg-header-assignment {
+    background: linear-gradient(45deg, #2E8BC0, #FFF);
+}
+
+.bg-header-daily-report {
+    background: linear-gradient(45deg, #B1D4E0, #FFF);
+}
+
+.bg-header-custom-report {
+    background: linear-gradient(45deg, #145DA0, #FFF);
+}
+
+.sidebar .nav-item .collapse .collapse-inner .collapse-item:hover,
+.sidebar .nav-item .collapsing .collapse-inner .collapse-item:hover {
+    background-color: #B0E2F1;
+}
+
+.grid-stack-item-content .card {
+    top: -1;
+}
+
+.grid-stack-item-content .card .card-header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+@media screen and (max-width: 900px) {
+    .sidebar-brand {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .topbar-product-name {
+        display: none;
+    }
+}

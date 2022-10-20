@@ -1,0 +1,13 @@
+# Set database connection info
+# SetEnv SYS_TITLE 報修暨派工系統
+# SetEnv DB_HOST localhost
+# SetEnv DB_NAME rails
+# SetEnv DB_USR root
+# SetEnv DB_ENC_PWD 
+
+# Redirect to front controller
+RewriteEngine On
+# RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]

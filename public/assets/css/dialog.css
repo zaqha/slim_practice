@@ -1,0 +1,135 @@
+/*
+** filename: global.css
+** description: PHP網路應用程式dialog樣式
+** author: JungHui | junghui@informc.com
+** modification history:
+**** 2017.10.02: created
+*/
+
+/* .panel .panel-title{
+  padding: 10px;
+  font-size: 16px;
+}
+
+.panel-header{
+  border-color: #0073ee;
+} */
+
+.window [id^=dialog] {
+  border-width: 0;
+  background-color: #FFF;
+  overflow-x: hidden;
+}
+
+/* main dialog */
+
+.perin{
+  width: -moz-available;          /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  width: fill-available;
+  height: 35px;
+  line-height: 28px;
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: #000000;
+}
+
+.perin .county, .perin .district{
+  width: 75px;
+}
+
+.perin select{
+  width: 150px;
+}
+
+.perin input{
+  padding: 0 5px;
+  margin: 5px 0;
+  width: 150px;
+}
+
+.perin input:not([readonly]):focus, .perin textarea:not([readonly]):focus, .perin .combo:focus{
+  border: 1.5px solid #0073ee;
+}
+
+.perin input:read-only{
+  background-color: #eaeaf4;
+}
+
+.perin textarea{
+  margin: 5px 0;
+  padding: 5px;
+  resize: none;
+}
+
+.perin textarea:read-only{
+  background-color: #eaeaf4;
+}
+
+.perin td {
+  width: 140px;
+}
+
+.trace-table{
+  width: -moz-available;          /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  width: fill-available;
+  margin-top: 10px;
+  border-top: 1px solid #000;
+  height: 35px;
+  line-height: 28px;
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: #000000;
+}
+
+.trace-table td{
+  text-align: center;
+}
+/*員工調薪介面*/
+.tb_sawo{
+  width: 500px;
+  height: 35px;
+  line-height: 28px;
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: #000000;
+}
+.tb_sawo input[type="text"], .tb_sawo input[type="date"]{
+  font-size: 13px;
+  color: #000000;
+  height: 23px;
+  width: 150px;
+}
+/*基數行tr樣式*/
+/*.tb_sawo td:nth-child(odd){
+  width: 140px;
+}*/
+.tb_sawo td{
+  width: 150px;
+}
+
+.tb_sawo th{
+  width: 150px;
+}
+
+/*員工薪資調整*/
+.tb_upsalary{
+	background-color: #FFFFFF;
+}
+.tb_upsa{
+  height: 35px;
+  line-height: 28px;
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: #000000;
+
+}
+
+
+.tb_upsa input[type="text"], .tb_upsa input[type="date"]{
+  font-size: 13px;
+  color: #000000;
+  height: 23px;
+  width: 100px;
+}

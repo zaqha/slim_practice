@@ -1,0 +1,99 @@
+footer {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+#loginHeader, #loginFooter {
+    background-color: #f5f5f5;
+}
+
+#btnLogin {
+    background-color: #3b5998;
+    color: white;
+}
+
+#btnLogin:hover {
+    background-color: #001c58;
+}
+
+#loginHeader {
+    max-height: 30vh;
+    height: 30vh;
+}
+
+#loginFooter {
+    height: 10vh;
+    min-height: 10vh;
+}
+
+.textbox .textbox-icon {
+    height: 50px;
+}
+
+/* 登入畫面上方logo */
+/* img {
+    max-width: 300px;
+    max-height: 100%;
+} */
+#loginPic {
+    background-image: url('../img/login-background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-size: cover;
+    height: 65vh;
+    width: auto;
+}
+
+#loginTitle {
+    font-size: 5rem;
+    letter-spacing: 3px;
+    line-height: 60px;
+    font-family: Arial Black;
+    text-shadow: 0.1em 0.1em 0.2em #b9b9b9;
+    background: rgb(12, 110, 212);
+    background: linear-gradient(45deg, rgba(12, 110, 212, 1) 0%, rgba(0, 39, 127, 1) 16%, rgba(131, 192, 253, 1) 32%, rgba(0, 39, 127, 1) 85%, rgba(0, 39, 127, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone;
+    text-shadow: none;
+    font-weight: 700;
+}
+
+#loginSubTitle {
+    color: #415db0;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    text-decoration: underline;
+    font-family: Imprint MT Shadow;
+    white-space: nowrap;
+}
+
+/* 登入時autocomplete載入後字型 */
+input:-webkit-autofill::first-line {
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1.25rem;
+}
+
+body, form, .container, .textbox {
+    margin: auto;
+    border: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.panel-body {
+    box-shadow: inset 0 1px 2px 0px rgba(0, 0, 0, .3);
+}
+
+form {
+    height: inherit;
+    width: inherit;
+}
+
+.textbox .textbox-text {
+    font-size: 16px;
+}

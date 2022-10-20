@@ -1,0 +1,63 @@
+@media print{
+    @page {
+        size: A4 landscape;
+        margin: auto;
+    }
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tableDisplay {
+        display: table !important;
+    }
+
+    .tableProduce, .tableColor, .testBorder {
+        width: 100% !important;
+        height: 150% !important;
+        table-layout: fixed !important;
+        vertical-align: middle !important;
+        
+        text-align: center !important;
+    }
+    header *, #page-wrapper nav *, footer, #sidebar-wrapper, .sidebar-brand, title, #tfoot, hr, .card-header {display: none !important;}
+    * {border: 0px !important;margin: 0px !important; padding: 0px !important; text-align: center; }
+    .tableColor.table-bordered {
+        border:1px solid black !important;
+        width: 100%;
+    }
+    
+    .tableColor.table-bordered * {
+        border:1px solid black !important;
+    }
+
+    .tableProduce.table-bordered {
+        border:1px solid black !important;
+        width: 100%;
+    }
+
+    .tableProduce.table-bordered * {
+        border:1px solid black !important;
+    }
+
+    #content-wrapper {
+        border-left: none !important;
+    }
+
+    .reportMinHeight {
+        height: 200px;
+    }
+
+    .reportSmall {
+        height: 50px;
+    }
+
+    .reportLarge {
+        height: 100px;
+    }
+
+    .shadow {
+        display: none !important;
+    }
+}
